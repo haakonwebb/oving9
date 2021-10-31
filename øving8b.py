@@ -23,13 +23,14 @@ class Question:
             j += 1
             answerstring += f"{j}. {self.qlist[i]} \n"
         return f"{self.qtext} \n{answerstring}"
-        
+    
+def readfile():
+    with open("sporsmaalsfil.txt", "r", encoding="UTF8") as file:
+        questions = list()
+        for line in file:
+            linetemp = line.split(":")
+            questions.append(Question(linetemp[0], linetemp[2], linetemp[1]))
+        return questions
 if __name__ == "__main__":   
-    q1 = Question("Which is the largest country?", ["Russia", "China", "America"], 1)
-    print(q1)
-    qanswer = int(input("Which of these is the correct answer?: "))
-    q1.checkanswer(qanswer)
-    q2 = Question("Who's the best player in LoL?", ["Melty", "Faker", "Tyler1"], 2)
-    print(q2)
-    qanswer = int(input("Which of these is the correct answer?: "))
-    q2.checkanswer(qanswer)
+    question = readfile()
+    
