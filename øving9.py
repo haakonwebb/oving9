@@ -50,9 +50,13 @@ if __name__ == "__main__":
         print("Player 1:")
         if questions[i].checkanswer(p1answer) == True:
             p1points += 1
+        elif questions[i].checkanswer(p1answer) == True:
+            p2points -= 1
         print("Player 2:")
         if questions[i].checkanswer(p2answer) == True:
             p2points += 1
+        elif questions[i].checkanswer(p2answer) == False:
+            p2points -= 1
 
     print(f"Player 1 had: {p1points} points")
     print(f"Player 2 had: {p2points} points")
